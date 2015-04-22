@@ -55,10 +55,14 @@ git clone https://github.com/glawson6/mule-starter-app.git
 ... build it using `maven` ...
 
 ```bash
-mvn install
+mvn package
 ```
 
 ... and use the `.jar` located in your target directory.
+
+```bash
+ java -jar target/mule-starter-app-1.0-SNAPSHOT.jar 
+ ```
 
 <a name="authors"></a>
 ## Authors
