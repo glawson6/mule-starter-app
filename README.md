@@ -6,6 +6,8 @@
 - [Usage](#usage)
 - [Authors](#author)
 - [License](#license)
+- [License Spring Boot](#license-spring-boot)
+- [License Mule](#license-mule)
 
 
 ## Usage
@@ -76,6 +78,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+<a name="license-spring-boot"></a>
+## Licensing for Spring Boot
 
 Copyright 2012-2013 the original author or authors.
 
@@ -91,7 +95,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Licensing for Mule ESB
+<a name="license-mule"></a>
+## Licensing for Mule ESB
 
 Mule ESB Community is licensed under the Common Public Atttribution License (CPAL). For information on other MuleSoft products and how they are licensed, please click here.
 
