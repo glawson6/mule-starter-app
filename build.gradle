@@ -24,10 +24,10 @@ sourceSets.main.java.srcDirs = []
 sourceSets.main.groovy.srcDirs = ["src/main/java", "src/main/groovy"]
 
 sourceSets.test.java.srcDirs = []
-sourceSets.test.groovy.srcDirs = ["src/main/java", "src/main/groovy"]
+sourceSets.test.groovy.srcDirs = ["src/test/java", "src/test/groovy"]
 
 sourceSets.main.resources.srcDirs = ["src/main/resources","src/main/app"]
-sourceSets.test.resources.srcDirs = ["src/main/resources","src/main/app"]
+sourceSets.test.resources.srcDirs = ["src/main/resources","src/test/resources","src/main/app"]
 
 bootRepackage {
     mainClass='org.taptech.app.MuleBootstrap'
@@ -38,14 +38,14 @@ springBoot {
 }
 
 repositories {
-    mavenLocal()
+    //mavenLocal()
     mavenCentral()
     jcenter()
     maven { url "http://repo.spring.io/snapshot" }
     maven { url "http://repo.spring.io/milestone" }
-    maven {
-        url "https://repository.mulesoft.org/nexus/content/repositories/public"
-    }
+    maven { url "https://repository.mulesoft.org/nexus/content/repositories/public" }
+    maven { url "https://repository.mulesoft.org/nexus/content/repositories/releases" }
+    maven { url "http://xqj.net/maven" }
 }
 configurations {
 
@@ -61,6 +61,7 @@ ext {
     springGroup = 'org.springframework'
     springBootVersion = '1.2.3.RELEASE'
     muleVersion = '3.7.0-M2-SNAPSHOT'
+    //muleVersion = '3.6.1'
     orgMule = 'org.mule'
     orgMuleModules = 'org.mule.modules'
     orgMuleTransports = 'org.mule.transports'
@@ -87,18 +88,53 @@ List slf4j = [
         "log4j:log4j:1.2.16"
 ]
 
-
 List muleLibs = [
-        "org.mule.distributions:mule:3.7.0-M2-SNAPSHOT",
+
+        "$orgMule:mule-core:$muleVersion",
+        "$orgMule:mule-extensions-api:1.0.0-SNAPSHOT",
+        "$orgMuleModules:mule-module-annotations:$muleVersion@jar",
+        "$orgMuleModules:mule-module-spring-config:$muleVersion",
+        "$orgMuleModules:mule-module-cxf:$muleVersion@jar",
+        "$orgMuleModules:mule-module-xml:$muleVersion@jar",
+        "$orgMuleModules:mule-module-jersey:$muleVersion@jar",
+        "$orgMuleModules:mule-module-client:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-file:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-sftp:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-http:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-jdbc:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-jms:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-quartz:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-email:$muleVersion@jar",
+        "$orgMuleTransports:mule-transport-vm:$muleVersion@jar",
         "org.apache.geronimo.specs:geronimo-j2ee-connector_1.5_spec:2.0.0@jar",
         "com.eaio.uuid:uuid:3.2@jar",
         "com.google.guava:guava:18.0@jar",
-        "tanukisoft:wrapper:3.2.3@jar"
+        "tanukisoft:wrapper:3.2.3@jar",
+        "commons-jxpath:commons-jxpath:1.3@jar"
+        /*
+        "commons-jxpath:commons-jxpath:1.3@jar",
+        "commons-lang:commons-lang:2.4",
+        "commons-io:commons-io:2.4",
+        "commons-beanutils:commons-beanutils:1.9.2",
+        "commons-codec:commons-codec:1.9",
+        "commons-collections:commons-collections:3.2.1",
+        "commons-dbutils:commons-dbutils:1.2",
+        "commons-httpclient:commons-httpclient:3.1",
+        "commons-net:commons-net:2.2",
+        "commons-pool:commons-pool:1.6",
+        */
+        //"commons-cli:commons-cli:1.1",
+        //"javax.inject:javax.inject:1",
+        //"org.reflections:reflections:0.9.9",
+        //"org.mule.mvel:mule-mvel2:2.1.9-MULE-005",
+       // "net.sf.jgrapht:jgrapht:0.8.3"
 ]
 
 dependencies {
 
     compile "org.hibernate:hibernate-validator:5.1.3.Final"
+    compile 'javax.el:javax.el-api:3.0.0'
+    compile "org.apache.activemq:activemq-all:5.11.0"
     compile muleLibs, glassfishGrizzlyLibs
     compile("org.springframework:spring-context:$springVersion")
     compile("org.springframework.boot:spring-boot-starter") {
@@ -111,15 +147,12 @@ dependencies {
        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
     compile ("org.springframework.boot:spring-boot-starter-log4j")
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.3'
     testCompile("org.mule.tests:mule-tests-functional:$muleVersion"){
-        /*
-        exclude group: 'org.apache.logging.log4', module: 'log4j-api'
-        exclude group: 'org.apache.logging.log4', module: 'log4j-core'
-        exclude group: 'org.apache.logging.log4', module: 'log4j-slf4j-impl'
-        exclude group: 'org.apache.logging.log4', module: 'log4j-jcl'
-        */
     }
     testCompile("junit:junit")
+    testCompile("org.springframework:spring-test:$springVersion")
 }
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'

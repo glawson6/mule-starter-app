@@ -3,23 +3,37 @@
  */
 package org.taptech.app;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mule.DefaultMuleMessage;
 import org.mule.api.MuleMessage;
 import org.mule.api.client.MuleClient;
-import org.mule.tck.junit4.FunctionalTestCase;
 import org.mule.transport.NullPayload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-public class ExampleFunctionalTestCase extends FunctionalTestCase
-{
+import static org.junit.Assert.*;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = MuleBootstrap.class)
+@IntegrationTest
+public class ExampleFunctionalTestCase extends SprintBootMuleFunctionalTestCase {
+
+
+    private static final Logger log = LoggerFactory.getLogger(ExampleFunctionalTestCase.class);
+
     @Override
     protected String getConfigFile()
     {
         return "mule-config.xml";
+    }
+
+    @Test
+    public void testSanity(){
+        log.info("We are still here!");
     }
 
     @Test

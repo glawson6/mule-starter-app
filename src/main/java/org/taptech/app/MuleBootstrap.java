@@ -49,7 +49,6 @@ public class MuleBootstrap implements CommandLineRunner {
             configBuilder = new SpringXmlConfigurationBuilder("mule-config.xml");
             staticApplicationContext.refresh();
             configBuilder.setParentContext(staticApplicationContext);
-            ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext)configBuilder.getApplicationContext();
             MuleContext muleContext = muleContextFactory.createMuleContext(configBuilder);
             muleContext.start();
             log.info("Started Mule!");
