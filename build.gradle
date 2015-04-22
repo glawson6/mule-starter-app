@@ -137,21 +137,21 @@ dependencies {
     compile "org.apache.activemq:activemq-all:5.11.0"
     compile muleLibs, glassfishGrizzlyLibs
     compile("org.springframework:spring-context:$springVersion")
-    compile("org.springframework.boot:spring-boot-starter") {
+    compile("org.springframework.boot:spring-boot-starter:1.2.3.RELEASE") {
        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
-    compile("org.springframework.boot:spring-boot-starter-data-jpa") {
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.2.3.RELEASE") {
        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
-    compile("org.springframework.boot:spring-boot-starter-security") {
+    compile("org.springframework.boot:spring-boot-starter-security:1.2.3.RELEASE") {
        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
-    compile ("org.springframework.boot:spring-boot-starter-log4j")
+    compile ("org.springframework.boot:spring-boot-starter-log4j:1.2.3.RELEASE")
 
     compile 'org.codehaus.groovy:groovy-all:2.4.3'
     testCompile("org.mule.tests:mule-tests-functional:$muleVersion"){
     }
-    testCompile("junit:junit")
+    testCompile("junit:junit:4.9")
     testCompile("org.springframework:spring-test:$springVersion")
 }
 task wrapper(type: Wrapper) {

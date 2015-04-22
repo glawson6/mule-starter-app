@@ -24,10 +24,10 @@ cd mule-starter-app
 ```bash
 ./gradlew build
 ```
-... and use the `.jar` located in your target directory.
+... and use the `.jar` located in your build libs directory.
 
 ```bash
-java -jar build/libs/.jar
+java -jar build/libs/mule-starter-app-0.1-SNAPSHOT.jar 
 ```
 
 ### via Maven
