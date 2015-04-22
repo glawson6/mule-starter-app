@@ -28,7 +28,6 @@ import org.springframework.context.support.StaticApplicationContext;
 /**
  * Created by tap on 4/18/15.
  */
-//@SpringBootApplication
 @ComponentScan
 @Configuration
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class,DispatcherServletAutoConfiguration.class,
@@ -52,20 +51,17 @@ public class MuleBootstrap implements CommandLineRunner {
             MuleContext muleContext = muleContextFactory.createMuleContext(configBuilder);
             muleContext.start();
             log.info("Started Mule!");
-        } catch (ConfigurationException e) {
-            e.printStackTrace();
-        } catch (InitialisationException e) {
-            e.printStackTrace();
-        } catch (MuleException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("Error starting Mule...",e);
         }
     }
+
     public static void main(String... args) {
-        log.info("Starting to run...");
+        log.info("Starting SpringApplication...");
         SpringApplication app = new SpringApplication(MuleBootstrap.class);
         app.setWebEnvironment(false);
         app.run(args);
-        log.info("Completed the run...");
+        log.info("SpringApplication has started...");
     }
 
 
