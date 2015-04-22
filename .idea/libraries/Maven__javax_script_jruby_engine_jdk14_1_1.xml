@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: javax.script:jruby-engine:jdk14:1.1">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/javax/script/jruby-engine/1.1/jruby-engine-1.1-jdk14.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/javax/script/jruby-engine/1.1/jruby-engine-1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/javax/script/jruby-engine/1.1/jruby-engine-1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

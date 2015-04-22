@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mule:mule-extensions-annotations:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/org/mule/mule-extensions-annotations/1.0.0-SNAPSHOT/mule-extensions-annotations-1.0.0-20150408.141016-9.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/org/mule/mule-extensions-annotations/1.0.0-SNAPSHOT/mule-extensions-annotations-1.0.0-20150408.141016-9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/org/mule/mule-extensions-annotations/1.0.0-SNAPSHOT/mule-extensions-annotations-1.0.0-20150408.141016-9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jibx:jibx-extras:1.2.4.5">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/org/jibx/jibx-extras/1.2.4.5/jibx-extras-1.2.4.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/org/jibx/jibx-extras/1.2.4.5/jibx-extras-1.2.4.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/org/jibx/jibx-extras/1.2.4.5/jibx-extras-1.2.4.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

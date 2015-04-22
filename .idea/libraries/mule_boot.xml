@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="mule-boot">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../software/mule-standalone-3.6.1/lib/boot" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../../../../software/mule-standalone-3.6.1/lib/boot" />
+    </NATIVE>
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../software/mule-standalone-3.6.1/lib/boot" recursive="false" />
+  </library>
+</component>

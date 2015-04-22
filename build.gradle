@@ -1,0 +1,152 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+group = 'org.taptech.app'
+version = '0.1-SNAPSHOT'
+
+sourceSets.main.java.srcDirs = []
+sourceSets.main.groovy.srcDirs = ["src/main/java", "src/main/groovy"]
+
+sourceSets.test.java.srcDirs = []
+sourceSets.test.groovy.srcDirs = ["src/main/java", "src/main/groovy"]
+
+sourceSets.main.resources.srcDirs = ["src/main/resources","src/main/app"]
+sourceSets.test.resources.srcDirs = ["src/main/resources","src/main/app"]
+
+bootRepackage {
+    mainClass='org.taptech.app.MuleBootstrap'
+}
+
+springBoot {
+    mainClass='org.taptech.app.MuleBootstrap'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven {
+        url "https://repository.mulesoft.org/nexus/content/repositories/public"
+    }
+}
+configurations {
+
+    neededToDeploy
+}
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+
+ext {
+    springVersion = '4.1.6.RELEASE'
+    springGroup = 'org.springframework'
+    springBootVersion = '1.2.3.RELEASE'
+    muleVersion = '3.7.0-M2-SNAPSHOT'
+    orgMule = 'org.mule'
+    orgMuleModules = 'org.mule.modules'
+    orgMuleTransports = 'org.mule.transports'
+    orgJasyptGroup = 'org.jasypt'
+    orgJasypytVersion = '1.9.0'
+    glassfishGrizzlyGroup = 'org.glassfish.grizzly'
+    glassfishGrizzlyVersion = '2.3.19'
+    sl4jVersion = '1.6.1'
+    slf4jGroup = 'org.slf4j'
+}
+
+List glassfishGrizzlyLibs = [
+        "$glassfishGrizzlyGroup:grizzly-core:$glassfishGrizzlyVersion",
+        "$glassfishGrizzlyGroup:grizzly-framework:$glassfishGrizzlyVersion",
+        "$glassfishGrizzlyGroup:grizzly-http:$glassfishGrizzlyVersion",
+        "$glassfishGrizzlyGroup:grizzly-http-server:$glassfishGrizzlyVersion",
+        "$glassfishGrizzlyGroup:grizzly-http-servlet:$glassfishGrizzlyVersion"
+]
+
+List slf4j = [
+        "$slf4jGroup:slf4j-api:$sl4jVersion",
+        "$slf4jGroup:jcl-over-slf4j:$sl4jVersion",
+        "$slf4jGroup:slf4j-log4j12:$sl4jVersion",
+        "log4j:log4j:1.2.16"
+]
+
+
+List muleLibs = [
+        "org.mule.distributions:mule:3.7.0-M2-SNAPSHOT",
+        "org.apache.geronimo.specs:geronimo-j2ee-connector_1.5_spec:2.0.0@jar",
+        "com.eaio.uuid:uuid:3.2@jar",
+        "com.google.guava:guava:18.0@jar",
+        "tanukisoft:wrapper:3.2.3@jar"
+]
+
+dependencies {
+
+    compile "org.hibernate:hibernate-validator:5.1.3.Final"
+    compile muleLibs, glassfishGrizzlyLibs
+    compile("org.springframework:spring-context:$springVersion")
+    compile("org.springframework.boot:spring-boot-starter") {
+       exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    compile("org.springframework.boot:spring-boot-starter-data-jpa") {
+       exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    compile("org.springframework.boot:spring-boot-starter-security") {
+       exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    compile ("org.springframework.boot:spring-boot-starter-log4j")
+    testCompile("org.mule.tests:mule-tests-functional:$muleVersion"){
+        /*
+        exclude group: 'org.apache.logging.log4', module: 'log4j-api'
+        exclude group: 'org.apache.logging.log4', module: 'log4j-core'
+        exclude group: 'org.apache.logging.log4', module: 'log4j-slf4j-impl'
+        exclude group: 'org.apache.logging.log4', module: 'log4j-jcl'
+        */
+    }
+    testCompile("junit:junit")
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            parent {
+                groupId 'org.springframework.boot'
+                artifactId 'spring-boot-starter-parent'
+                version "${project.springBootVersion}"
+            }
+        }
+    }
+}
+task writeNewPom << {
+    pom {
+        project {
+            inceptionYear '2015'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("$buildDir/newpom.xml")
+}

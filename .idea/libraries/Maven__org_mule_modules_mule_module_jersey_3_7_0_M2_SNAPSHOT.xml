@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mule.modules:mule-module-jersey:3.7.0-M2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-jersey/3.7.0-M2-SNAPSHOT/mule-module-jersey-3.7.0-M2-20150421.221538-48.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-jersey/3.7.0-M2-SNAPSHOT/mule-module-jersey-3.7.0-M2-20150421.221538-48-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-jersey/3.7.0-M2-SNAPSHOT/mule-module-jersey-3.7.0-M2-20150421.221538-48-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

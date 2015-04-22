@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.abdera:abdera-spring:0.4.0-incubating">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/org/apache/abdera/abdera-spring/0.4.0-incubating/abdera-spring-0.4.0-incubating.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/org/apache/abdera/abdera-spring/0.4.0-incubating/abdera-spring-0.4.0-incubating-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/org/apache/abdera/abdera-spring/0.4.0-incubating/abdera-spring-0.4.0-incubating-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

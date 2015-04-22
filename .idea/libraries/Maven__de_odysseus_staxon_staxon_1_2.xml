@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: de.odysseus.staxon:staxon:1.2">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/de/odysseus/staxon/staxon/1.2/staxon-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/de/odysseus/staxon/staxon/1.2/staxon-1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/de/odysseus/staxon/staxon/1.2/staxon-1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

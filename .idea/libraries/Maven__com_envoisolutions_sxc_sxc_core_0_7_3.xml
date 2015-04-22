@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.envoisolutions.sxc:sxc-core:0.7.3">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/com/envoisolutions/sxc/sxc-core/0.7.3/sxc-core-0.7.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/com/envoisolutions/sxc/sxc-core/0.7.3/sxc-core-0.7.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/com/envoisolutions/sxc/sxc-core/0.7.3/sxc-core-0.7.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mule.distributions:mule:3.7.0-M2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/org/mule/distributions/mule/3.7.0-M2-SNAPSHOT/mule-3.7.0-M2-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/org/mule/distributions/mule/3.7.0-M2-SNAPSHOT/mule-3.7.0-M2-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/org/mule/distributions/mule/3.7.0-M2-SNAPSHOT/mule-3.7.0-M2-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

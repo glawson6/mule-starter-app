@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mule-endorsed">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../software/mule-standalone-3.6.1/lib/endorsed" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../software/mule-standalone-3.6.1/lib/endorsed" recursive="false" />
+  </library>
+</component>
