@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.mule.modules:mule-module-builders:3.7.0-M2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-builders/3.7.0-M2-SNAPSHOT/mule-module-builders-3.7.0-M2-20150421.210439-54.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-builders/3.7.0-M2-SNAPSHOT/mule-module-builders-3.7.0-M2-20150508.091755-114.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-builders/3.7.0-M2-SNAPSHOT/mule-module-builders-3.7.0-M2-20150421.210439-54-javadoc.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-builders/3.7.0-M2-SNAPSHOT/mule-module-builders-3.7.0-M2-20150508.091755-114-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-builders/3.7.0-M2-SNAPSHOT/mule-module-builders-3.7.0-M2-20150421.210439-54-sources.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-builders/3.7.0-M2-SNAPSHOT/mule-module-builders-3.7.0-M2-20150508.091755-114-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

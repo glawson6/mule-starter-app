@@ -12,6 +12,7 @@
       xmlns:jersey="http://www.mulesoft.org/schema/mule/jersey"
       xmlns:json="http://www.mulesoft.org/schema/mule/json"
       xmlns:ws="http://www.mulesoft.org/schema/mule/ws"
+      xmlns:esper="http://www.mulesoft.org/schema/mule/esper"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
@@ -25,9 +26,32 @@
 		http://www.mulesoft.org/schema/mule/jersey http://www.mulesoft.org/schema/mule/jersey/current/mule-jersey.xsd
 		http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
 		http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+		http://www.mulesoft.org/schema/mule/esper http://www.mulesoft.org/schema/mule/esper/current/mule-esper.xsd
 	">
 
+    <spring:beans>
 
+        <spring:bean id="testString" class="java.lang.String">
+            <spring:constructor-arg value="BIGTAP" />
+        </spring:bean>
+
+        <spring:bean id="esperConfigFile" class="java.lang.String">
+            <spring:constructor-arg value="esper.cfg.xml" />
+        </spring:bean>
+
+        <spring:bean id="messageTypes" class="java.util.ArrayList">
+            <spring:constructor-arg>
+                <spring:list>
+                    <spring:value>CON</spring:value>
+                    <spring:value>MISC</spring:value>
+                    <spring:value>CCI</spring:value>
+                </spring:list>
+            </spring:constructor-arg>
+        </spring:bean>
+
+        <spring:bean id="eventGenerator" class="com.taptech.esper.util.RandomTemperatureEventGenerator"/>
+    </spring:beans>
+    <esper:config configuration="esper.cfg.xml" name="esperConfig" />
     <flow name="main">
        <vm:inbound-endpoint path="in" />
 
@@ -35,5 +59,21 @@
        <append-string-transformer message=" Received" />
 
         <vm:outbound-endpoint path="out"/>
+    </flow>
+    <flow name="pollmsgFlow">
+        <poll>
+            <fixed-frequency-scheduler frequency="6000"/>
+            <expression-component>
+                <![CDATA[     payload = app.registry['eventGenerator'].startSendingTemperatureReadings(10);]]>
+            </expression-component>
+        </poll>
+        <logger message="This is pollmsgFlow flow with payload #[payload] " level="INFO"/>
+        <logger message="This is pollmsgFlow flow with message properties #[message.inboundProperties]" level="INFO"/>
+        <collection-splitter/>
+        <esper:send config-ref="esperConfig" eventPayload-ref="#[payload]"/>
+    </flow>
+    <flow name="criticalTempFlow">
+        <esper:listen config-ref="esperConfig" statement="select * from Temperatures where temperature > 400" />
+        <logger message="This is criticalTempFlow flow with payload #[payload] " level="INFO"/>
     </flow>
 </mule>
