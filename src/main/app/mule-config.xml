@@ -35,10 +35,6 @@
             <spring:constructor-arg value="BIGTAP" />
         </spring:bean>
 
-        <spring:bean id="esperConfigFile" class="java.lang.String">
-            <spring:constructor-arg value="esper.cfg.xml" />
-        </spring:bean>
-
         <spring:bean id="messageTypes" class="java.util.ArrayList">
             <spring:constructor-arg>
                 <spring:list>
