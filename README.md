@@ -3,12 +3,17 @@
 
 ## Contents
 
+- [Blog](#blog-info)
 - [Usage](#usage)
 - [Authors](#author)
 - [License](#license)
 - [License Spring Boot](#license-spring-boot)
 - [License Mule](#license-mule)
 
+<a name="blog-info"></a>
+## Blog
+
+Please review the [blog](http://glawson6.github.io/spring/mule/2015/04/22/using-spring-boot-with-mule.html).
 
 ## Usage
 
@@ -28,20 +33,6 @@ cd mule-starter-app
 
 ```bash
 java -jar build/libs/mule-starter-app-0.1-SNAPSHOT.jar 
-```
-
-### via Maven
-
-TBD
-
-Just add following dependency definitions to your `pom.xml`.
-
-```xml
-<dependency>
-  <groupId></groupId>
-  <artifactId></artifactId>
-  <version></version>
-</dependency>
 ```
 
 ### Build it yourself
