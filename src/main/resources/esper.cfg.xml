@@ -5,5 +5,5 @@
             http://www.espertech.com/schema/esper/esper-configuration-2.0.xsd">
 
     <event-type name="Temperatures" class="com.taptech.esper.event.TemperatureEvent"/>
-
+    <plugin-pattern-observer namespace="" name="" factory-class=""/>
 </esper-configuration>

@@ -1,5 +1,4 @@
 org/taptech/app/MuleBootstrap.class
 com/taptech/esper/util/RandomTemperatureEventGenerator.class
 com/taptech/esper/util/RandomTemperatureEventGenerator$1.class
-com/taptech/esper/util/SpringEsperConfigLoader.class
 com/taptech/esper/event/TemperatureEvent.class
