@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.mule.transports:mule-transport-jms:3.7.0-M2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$M2_REPO$/org/mule/transports/mule-transport-jms/3.7.0-M2-SNAPSHOT/mule-transport-jms-3.7.0-M2-20150421.214354-50.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/transports/mule-transport-jms/3.7.0-M2-SNAPSHOT/mule-transport-jms-3.7.0-M2-20150508.095838-108.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$M2_REPO$/org/mule/transports/mule-transport-jms/3.7.0-M2-SNAPSHOT/mule-transport-jms-3.7.0-M2-20150421.214354-50-javadoc.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/transports/mule-transport-jms/3.7.0-M2-SNAPSHOT/mule-transport-jms-3.7.0-M2-20150508.095838-108-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$M2_REPO$/org/mule/transports/mule-transport-jms/3.7.0-M2-SNAPSHOT/mule-transport-jms-3.7.0-M2-20150421.214354-50-sources.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/transports/mule-transport-jms/3.7.0-M2-SNAPSHOT/mule-transport-jms-3.7.0-M2-20150508.095838-108-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

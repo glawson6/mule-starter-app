@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.mule.modules:mule-module-management:3.7.0-M2-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-management/3.7.0-M2-SNAPSHOT/mule-module-management-3.7.0-M2-20150421.212605-53.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-management/3.7.0-M2-SNAPSHOT/mule-module-management-3.7.0-M2-20150508.094033-111.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-management/3.7.0-M2-SNAPSHOT/mule-module-management-3.7.0-M2-20150421.212605-53-javadoc.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-management/3.7.0-M2-SNAPSHOT/mule-module-management-3.7.0-M2-20150508.094033-111-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-management/3.7.0-M2-SNAPSHOT/mule-module-management-3.7.0-M2-20150421.212605-53-sources.jar!/" />
+      <root url="jar://$M2_REPO$/org/mule/modules/mule-module-management/3.7.0-M2-SNAPSHOT/mule-module-management-3.7.0-M2-20150508.094033-111-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
