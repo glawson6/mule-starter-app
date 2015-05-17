@@ -47,6 +47,7 @@ public class ExampleFunctionalTestCase extends SprintBootMuleFunctionalTestCase 
         assertNull(result.getExceptionPayload());
         assertFalse(result.getPayload() instanceof NullPayload);
 
+        System.setProperty()
         //TODO Assert the correct data has been received
         assertEquals("some data Received", result.getPayloadAsString());
     }
