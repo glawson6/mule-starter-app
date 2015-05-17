@@ -54,3 +54,6 @@ http://www.mulesoft.com/support-and-services/enterprise-subscriptions-support
 Enjoy your Mule ride!
 
 The Mule Team
+
+
+git push  git@github.com:glawson6/activemq-mule-embedded.git +activemq-embedded:master
