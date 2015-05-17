@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00c83d11-26ad-4e1e-bc5f-81c48cdbf6fa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/taptech/app/client/QueueClientSender.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/activemq-client.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/activemq-embedded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/log4j.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/mule-starter-app-1.0-SNAPSHOT.jar.original" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/app/mule-config.xml" afterPath="$PROJECT_DIR$/src/main/app/mule-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mule-config.xml" afterPath="$PROJECT_DIR$/target/classes/mule-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="00c83d11-26ad-4e1e-bc5f-81c48cdbf6fa" name="Default" comment="" />
     <ignored path="mule-starter-app.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,7 +69,7 @@
       <file leaf-file-name="QueueClientSender.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/taptech/app/client/QueueClientSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55329156" vertical-offset="1027" max-vertical-offset="1665">
+            <state vertical-scroll-proportion="1.2115988" vertical-offset="607" max-vertical-offset="1665">
               <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
               <folding />
             </state>
@@ -715,12 +702,12 @@
       <updated>1429667200003</updated>
       <workItem from="1429667203680" duration="22750000" />
       <workItem from="1431272983278" duration="1312000" />
-      <workItem from="1431874275804" duration="6142000" />
+      <workItem from="1431874275804" duration="6450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30204000" />
+    <option name="totallyTimeSpent" value="30512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="47" width="1440" height="797" extended-state="0" />
@@ -1086,7 +1073,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/taptech/app/client/QueueClientSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55329156" vertical-offset="1027" max-vertical-offset="1665">
+        <state vertical-scroll-proportion="1.2115988" vertical-offset="607" max-vertical-offset="1665">
           <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
           <folding />
         </state>
