@@ -27,13 +27,34 @@
 		http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 	">
 
-
+    <spring:beans>
+        <!--
+        <spring:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+            <spring:property name="locations">
+                <spring:list>
+                    <spring:value>classpath:domain.properties</spring:value>
+                </spring:list>
+            </spring:property>
+        </spring:bean>
+        -->
+        <spring:import resource="classpath:activemq-embedded.xml"/>
+    </spring:beans>
+    <jms:activemq-connector name="jmsConnector1"
+                            connectionFactory-ref="connectionFactoryTCP"
+                            specification="1.1"
+                            validateConnections="true"
+                            maxRedelivery="-1"
+                            numberOfConsumers="1"/>
     <flow name="main">
        <vm:inbound-endpoint path="in" />
-
         <!-- TODO add your service component here. This can also be a Spring bean using <spring-object bean="name"/> -->
        <append-string-transformer message=" Received" />
-
         <vm:outbound-endpoint path="out"/>
+    </flow>
+    <flow name="jmsInboundFlow1">
+        <jms:inbound-endpoint queue="queue1" connector-ref="jmsConnector1" exchange-pattern="one-way">
+        </jms:inbound-endpoint>
+        <append-string-transformer message=" Received from jmsInboundFlow1  " />
+        <logger message="This is a jms flow  jmsInboundFlow1 #[payload] #[message.inboundProperties]" level="INFO"/>
     </flow>
 </mule>

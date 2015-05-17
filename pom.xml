@@ -10,22 +10,24 @@
 	<groupId>org.taptech.app</groupId>
 	<artifactId>mule-starter-app</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>mule</packaging>
 	<name>Mule mule-starter-app Application</name>
 
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <mule.version>3.7.0-M2-SNAPSHOT</mule.version>
+        <!--mule.version>3.7.0-M2-SNAPSHOT</mule.version-->
+        <mule.version>3.6.1</mule.version>
         <mule.tools.version>1.0</mule.tools.version>
 		<jdk.version>1.7</jdk.version>
 		<junit.version>4.9</junit.version>
         <spring.boot.version>1.2.3.RELEASE</spring.boot.version>
-        <start-class>org.taptech.app.MuleBootstrap</start-class>
+        <!--start-class>org.taptech.app.MuleBootstrap</start-class-->
 	</properties>
 
 	<build>
 		<plugins>
+            <!--
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -41,6 +43,7 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
@@ -50,6 +53,15 @@
                     <copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <executable>java</executable>
+                    <mainClass>org.taptech.app.client.QueueClientSender</mainClass>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>

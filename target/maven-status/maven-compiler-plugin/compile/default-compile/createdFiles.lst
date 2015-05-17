@@ -1,1 +1,4 @@
 org/taptech/app/MuleBootstrap.class
+org/taptech/app/client/QueueClientSender$1.class
+org/taptech/app/client/QueueClientSender$2.class
+org/taptech/app/client/QueueClientSender.class
