@@ -1,0 +1,1 @@
+web: java -jar target/mule-starter-app-1.0-SNAPSHOT.jar
