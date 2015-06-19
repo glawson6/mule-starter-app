@@ -9,7 +9,7 @@
         </layout>
     </appender>
     <appender name="file" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="./logs/mule-starter-app.log"/>
+        <param name="File" value="./mule-starter-app.log"/>
         <param name="Threshold" value="debug"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %-5p %c - %m%n"/>
