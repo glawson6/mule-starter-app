@@ -1,0 +1,1 @@
+mvn clean install && java -DinputFilePath=/Users/tap/dev/tmp/ovc-sf/input/08062015   -DbrokerURL=tcp://localhost:61616 -DjmsUser=ruby  -DjmsPassword=ruby -Ddestination.queue=OVC-SF -jar target/mule-starter-app-1.0-SNAPSHOT.jar

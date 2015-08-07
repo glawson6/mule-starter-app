@@ -1,0 +1,62 @@
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p %d [%t] %c: %m%n"/>
+        </Console>
+        <File name="MyFile" fileName="../logs/ovc-sf.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+
+        <!-- CXF is used heavily by Mule for web services -->
+        <AsyncLogger name="org.apache.cxf" level="WARN">
+        </AsyncLogger>
+
+        <!-- Apache Commons tend to make a lot of noise which can clutter the log-->
+        <AsyncLogger name="org.apache" level="WARN">
+        </AsyncLogger>
+        <AsyncLogger name="org.apache.activemq" level="INFO">
+        </AsyncLogger>
+
+        <!-- Reduce startup noise -->
+        <AsyncLogger name="org.springframework.beans.factory" level="NONE">
+        </AsyncLogger>
+
+        <!-- Mule classes -->
+        <AsyncLogger name="com.cox.automotive.sfovc.mule.transformer" level="INFO"/>
+        <AsyncLogger name="com.cox.automotive.sfovc.converter" level="INFO"/>
+        <AsyncLogger name="org.mule.config.factories" level="ERROR">
+        </AsyncLogger>
+        <AsyncLogger name="org.mule.module.db.internal.domain.type.MetadataDbTypeManager" level="NONE">
+        </AsyncLogger>
+        <AsyncLogger name="com.mulesoft.module.batch.engine.queue.BatchQueueLoader" level="NONE">
+        </AsyncLogger>
+        <AsyncLogger name="com.mulesoft.module.batch.engine.DefaultBatchEngine" level="NONE">
+        </AsyncLogger>
+        <AsyncLogger name="org.mule.lifecycle.AbstractLifecycleManager" level="NONE">
+        </AsyncLogger>
+        <AsyncLogger name="org.mule.module.db" level="INFO">
+        </AsyncLogger>
+        <AsyncLogger name="com.lmax.disruptor" level="NONE">
+        </AsyncLogger>
+        <AsyncLogger name="org.mule.transport" level="INFO">
+        </AsyncLogger>
+        <AsyncLogger name="org.mule" level="INFO">
+
+        </AsyncLogger>
+        <AsyncLogger name="com.mulesoft" level="INFO">
+        </AsyncLogger>
+
+        <AsyncLogger name="com.cox.automotive.edi9.service.transformer.CanonicalTransformer" level="INFO">
+        </AsyncLogger>
+
+        <AsyncRoot level="INFO">
+            <AppenderRef ref="Console"/>
+        </AsyncRoot>
+    </Loggers>
+
+</Configuration>

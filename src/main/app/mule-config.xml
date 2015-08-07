@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:spring="http://www.springframework.org/schema/beans"
       xmlns:http="http://www.mulesoft.org/schema/mule/http"
@@ -8,32 +8,43 @@
       xmlns:file="http://www.mulesoft.org/schema/mule/file"
       xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp"
       xmlns:db="http://www.mulesoft.org/schema/mule/db"
-	  xmlns:mule-xml="http://www.mulesoft.org/schema/mule/xml"
+      xmlns:mule-xml="http://www.mulesoft.org/schema/mule/xml"
       xmlns:jersey="http://www.mulesoft.org/schema/mule/jersey"
       xmlns:json="http://www.mulesoft.org/schema/mule/json"
       xmlns:ws="http://www.mulesoft.org/schema/mule/ws"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-		http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-		http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
-		http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
-		http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
-		http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
-		http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
-		http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
-		http://www.mulesoft.org/schema/mule/jersey http://www.mulesoft.org/schema/mule/jersey/current/mule-jersey.xsd
-		http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-		http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
-	">
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/jersey http://www.mulesoft.org/schema/mule/jersey/current/mule-jersey.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd" version="EE-3.7.0">
 
 
-    <flow name="main">
-       <vm:inbound-endpoint path="in" />
+    <spring:beans>
+        <spring:bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+            <spring:property name="locations">
+                <spring:list>
+                    <spring:value>app.properties</spring:value>
+                </spring:list>
+            </spring:property>
+            <spring:property name="ignoreResourceNotFound" value="true"/>
+            <spring:property name="searchSystemEnvironment" value="true"/>
+        </spring:bean>
+    </spring:beans>
 
-        <!-- TODO add your service component here. This can also be a Spring bean using <spring-object bean="name"/> -->
-       <append-string-transformer message=" Received" />
+    <jms:activemq-connector name="Active_MQ" specification="1.1" username="${jmsUser}" password="${jmsPassword}"
+                            brokerURL="${brokerURL}" validateConnections="true"/>
 
-        <vm:outbound-endpoint path="out"/>
+    <flow name="fileToQueueFlow">
+        <file:inbound-endpoint path="${inputFilePath}" responseTimeout="10000"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <logger category="fileToQueueFlow" level="INFO" message="Moving payload #[payload]"/>
+        <jms:outbound-endpoint connector-ref="Active_MQ" doc:name="JMS" queue="${destination.queue}"/>
     </flow>
 </mule>
