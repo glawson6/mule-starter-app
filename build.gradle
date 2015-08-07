@@ -51,8 +51,8 @@ configurations {
 
     neededToDeploy
 }
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
 
@@ -60,7 +60,7 @@ ext {
     springVersion = '4.1.6.RELEASE'
     springGroup = 'org.springframework'
     springBootVersion = '1.2.3.RELEASE'
-    muleVersion = '3.7.0-M2-SNAPSHOT'
+    muleVersion = '3.7.0'
     //muleVersion = '3.6.1'
     orgMule = 'org.mule'
     orgMuleModules = 'org.mule.modules'

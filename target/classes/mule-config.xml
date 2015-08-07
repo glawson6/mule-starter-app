@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns="http://www.mulesoft.org/schema/mule/core"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
       xmlns:spring="http://www.springframework.org/schema/beans"
       xmlns:http="http://www.mulesoft.org/schema/mule/http"
       xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
@@ -8,11 +9,11 @@
       xmlns:file="http://www.mulesoft.org/schema/mule/file"
       xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp"
       xmlns:db="http://www.mulesoft.org/schema/mule/db"
-	  xmlns:mule-xml="http://www.mulesoft.org/schema/mule/xml"
+      xmlns:mule-xml="http://www.mulesoft.org/schema/mule/xml"
       xmlns:jersey="http://www.mulesoft.org/schema/mule/jersey"
       xmlns:json="http://www.mulesoft.org/schema/mule/json"
       xmlns:ws="http://www.mulesoft.org/schema/mule/ws"
-    xsi:schemaLocation="
+      xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 		http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
@@ -27,12 +28,31 @@
 		http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 	">
 
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081"
+                          doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="baconipsum.com" doc:name="HTTP Request Configuration"
+                         basePath="api"/>
+    <flow name="test2Flow1" >
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP" >
+        </http:listener>
+        <http:request config-ref="HTTP_Request_Configuration" path="/" method="GET" followRedirects="true" doc:name="HTTP">
+            <http:request-builder>
+                <http:query-param paramName="q" value="#[message.inboundProperties.'http.query.params'.q]"/>
+                <http:query-param paramName="env" value="#[message.inboundProperties.'http.query.params'.env]"/>
+                <http:query-param paramName="format" value="#[message.inboundProperties.'http.query.params'.format]"/>
+            </http:request-builder>
+        </http:request>
+        <logger level="INFO" doc:name="Logger"/>
+
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <!--file:outbound-endpoint path="/tmp/" outputPattern="out.json" responseTimeout="10000" doc:name="File"/-->
+    </flow>
 
     <flow name="main">
-       <vm:inbound-endpoint path="in" />
+        <vm:inbound-endpoint path="in"/>
 
         <!-- TODO add your service component here. This can also be a Spring bean using <spring-object bean="name"/> -->
-       <append-string-transformer message=" Received" />
+        <append-string-transformer message=" Received"/>
 
         <vm:outbound-endpoint path="out"/>
     </flow>
