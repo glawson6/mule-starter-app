@@ -16,7 +16,7 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <mule.version>3.7.0-M2-SNAPSHOT</mule.version>
+        <mule.version>3.7.0</mule.version>
         <mule.tools.version>1.0</mule.tools.version>
 		<jdk.version>1.7</jdk.version>
 		<junit.version>4.9</junit.version>
