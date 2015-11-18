@@ -5,3 +5,4 @@
 **/logs
 target/**
 .idea
+mule-starter-app.log

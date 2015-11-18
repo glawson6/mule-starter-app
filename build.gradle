@@ -4,6 +4,8 @@ buildscript {
         jcenter()
         maven { url "http://repo.spring.io/snapshot" }
         maven { url "http://repo.spring.io/milestone" }
+        maven { url "https://repository.mulesoft.org/nexus/content/repositories/releases" }
+        maven { url "https://repository.mulesoft.org/nexus/content/repositories/public" }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
@@ -60,7 +62,7 @@ ext {
     springVersion = '4.1.6.RELEASE'
     springGroup = 'org.springframework'
     springBootVersion = '1.2.3.RELEASE'
-    muleVersion = '3.7.0-M2-SNAPSHOT'
+    muleVersion = '3.7.0'
     //muleVersion = '3.6.1'
     orgMule = 'org.mule'
     orgMuleModules = 'org.mule.modules'
@@ -155,7 +157,7 @@ dependencies {
     testCompile("org.springframework:spring-test:$springVersion")
 }
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.9'
 }
 
 install {
